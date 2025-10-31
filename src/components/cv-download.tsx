@@ -6,7 +6,9 @@ import { Download, Printer } from "lucide-react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
-export function CvActions({ targetId = "cv-root" }: { targetId?: string }) {
+type Labels = { print: string; download: string; generating: string };
+
+export function CvActions({ targetId = "cv-root", labels }: { targetId?: string; labels?: Labels }) {
   const [downloading, setDownloading] = useState(false);
 
   async function handleDownloadPdf() {
@@ -51,13 +53,17 @@ export function CvActions({ targetId = "cv-root" }: { targetId?: string }) {
     }
   }
 
+  const printLabel = labels?.print ?? "Imprimir";
+  const downloadLabel = labels?.download ?? "Baixar PDF";
+  const generatingLabel = labels?.generating ?? "Gerando...";
+
   return (
     <div className="flex gap-2">
       <Button variant="outline" size="sm" onClick={() => window.print()}>
-        <Printer className="mr-2 h-4 w-4" /> Imprimir
+        <Printer className="mr-2 h-4 w-4" /> {printLabel}
       </Button>
       <Button size="sm" onClick={handleDownloadPdf} disabled={downloading}>
-        <Download className="mr-2 h-4 w-4" /> {downloading ? "Gerando..." : "Baixar PDF"}
+        <Download className="mr-2 h-4 w-4" /> {downloading ? generatingLabel : downloadLabel}
       </Button>
     </div>
   );

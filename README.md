@@ -9,6 +9,7 @@ Aplicação moderna de portfólio construída com Next.js 16 (App Router), TypeS
 - shadcn/ui
 - Framer Motion
 - Flutter (Mobile)
+- Java, Spring Boot, Angular, Android
 
 ### Pré-requisitos
 - Node.js 18+

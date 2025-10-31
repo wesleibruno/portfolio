@@ -1,6 +1,7 @@
 "use client";
 
 import { profile, socialLinks } from "@/data/profile";
+import { CvActions } from "@/components/cv-download";
 import pt from "@/i18n/messages/pt.json";
 import en from "@/i18n/messages/en.json";
 import es from "@/i18n/messages/es.json";
@@ -15,7 +16,14 @@ export default function CVPage() {
   return (
     <main className="mx-auto max-w-4xl p-6 print:p-0">
       <div className="mb-4 flex items-center justify-end print:hidden">
-        {/* impressão pode ser feita pelo navegador (Ctrl+P) */}
+        <CvActions
+          targetId="cv-root"
+          labels={{
+            print: locale === 'pt' ? 'Imprimir' : locale === 'es' ? 'Imprimir' : locale === 'fr' ? 'Imprimer' : 'Print',
+            download: locale === 'pt' ? 'Baixar PDF' : locale === 'es' ? 'Descargar PDF' : locale === 'fr' ? 'Télécharger PDF' : 'Download PDF',
+            generating: locale === 'pt' ? 'Gerando...' : locale === 'es' ? 'Generando...' : locale === 'fr' ? 'Génération...' : 'Generating...'
+          }}
+        />
       </div>
       <section id="cv-root" className="rounded-lg border bg-card p-6 print:border-0 print:rounded-none">
         <header className="flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between">

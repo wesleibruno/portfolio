@@ -1,6 +1,6 @@
 "use client";
 
-import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiNodedotjs, SiPrisma, SiPostgresql, SiMongodb, SiMysql, SiTensorflow, SiThreedotjs, SiGrafana, SiPhp, SiOpenai, SiFlutter } from "react-icons/si";
+import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiNodedotjs, SiPrisma, SiPostgresql, SiMongodb, SiMysql, SiTensorflow, SiThreedotjs, SiGrafana, SiPhp, SiOpenai, SiFlutter, SiOpenjdk, SiAngular, SiSpringboot, SiAndroid } from "react-icons/si";
 import { IconType } from "react-icons";
 
 const map: Record<string, IconType> = {
@@ -25,6 +25,12 @@ const map: Record<string, IconType> = {
   "php": SiPhp,
   "openai": SiOpenai,
   "flutter": SiFlutter,
+  "java": SiOpenjdk,
+  "angular": SiAngular,
+  "spring boot": SiSpringboot,
+  "spring-boot": SiSpringboot,
+  "springboot": SiSpringboot,
+  "android": SiAndroid,
 };
 
 export function TechIcon({ name, className }: { name: string; className?: string }) {

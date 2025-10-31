@@ -33,6 +33,10 @@ export const profile = {
     "Grafana",
     "Zabbix",
     "Flutter",
+    "Java",
+    "Spring Boot",
+    "Angular",
+    "Android",
     "PHP",
   ],
   experience: [
