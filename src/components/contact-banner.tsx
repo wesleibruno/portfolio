@@ -62,7 +62,7 @@ export function ContactBanner() {
           </RippleButton>
           {profile.resumeUrl ? (
             <RippleButton size="sm" asChild>
-              <Link href={profile.resumeUrl}>
+              <Link href={`/${locale}${profile.resumeUrl}`}>
                 {t.buttons.downloadCv}
               </Link>
             </RippleButton>

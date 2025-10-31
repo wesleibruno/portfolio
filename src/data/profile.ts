@@ -85,6 +85,20 @@ export const profile = {
   ],
   featuredProjects: [
     {
+      repo: "wesleibruno/shadcn-ui-store",
+      title: "E-commerce UI com shadcn/ui",
+      summary:
+        "Store front moderna com Next.js, shadcn/ui e Tailwind; catálogo, carrinho básico e UI acessível.",
+      tags: ["Next.js", "TypeScript", "shadcn/ui", "Tailwind"],
+    },
+    {
+      repo: "wesleibruno/React-Tic-Tac-Toe",
+      title: "Jogo Tic-Tac-Toe (React)",
+      summary:
+        "Implantação simples com React e Vite; destaca estado, componentes e deploy na Vercel.",
+      tags: ["React", "Vite", "Deploy"],
+    },
+    {
       repo: "wesleibruno/finance-chatgpt-tensorflow", // ajuste para o nome correto do repositório
       title: "Análise Financeira com IA",
       summary:
@@ -105,6 +119,17 @@ export const profile = {
         "Visualizações interativas e dinâmicas de objetos 3D no navegador com Three.js e controles customizados.",
       tags: ["Three.js", "3D", "UX"],
     },
+  ],
+  // Ordem de prioridade para destaques (palavras‑chave)
+  featuredPriority: [
+    "instagram",
+    "restaurant",
+    "store",
+    "tic",
+    "finance",
+    "llama",
+    "three",
+    "extension",
   ],
 };
 

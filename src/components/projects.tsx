@@ -28,23 +28,12 @@ async function getRepos(): Promise<Repo[]> {
   });
   if (!res.ok) return [];
   const data = (await res.json()) as Repo[];
-  const blacklist = new Set(["youtube-video-background"]);
+  const blacklist = new Set(["youtube-video-background", "get-location---get-System-Information", "nextjs-camera", "First-steps-with-Deno"]);
   const filtered = data.filter((r) => !r.name.startsWith(".") && !r.archived && !blacklist.has(r.name));
-  // Scoring: demos first, then stars, then recency
-  const scored = filtered
-    .map((r) => ({
-      repo: r,
-      score:
-        (r.homepage ? 300 : 0) +
-        Math.min(200, r.stargazers_count * 5) +
-        // newer pushed_at => higher score
-        (r.pushed_at ? Math.max(0, 200 - Math.floor((Date.now() - new Date(r.pushed_at).getTime()) / (1000 * 60 * 60 * 24))) : 0) +
-        // Boost keywords como "restaurant"
-        (/restaurant/i.test(`${r.name} ${r.description ?? ''}`) ? 120 : 0),
-    }))
-    .sort((a, b) => b.score - a.score)
-    .map((s) => s.repo);
-  return scored.slice(0, 8);
+  // Ordenação: estritamente por última atualização (pushed_at desc)
+  const ordered = filtered
+    .sort((a, b) => new Date(b.pushed_at || 0).getTime() - new Date(a.pushed_at || 0).getTime());
+  return ordered.slice(0, 8);
 }
 
 export async function Projects() {

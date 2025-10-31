@@ -46,21 +46,33 @@ async function getFeatured(): Promise<Repo[]> {
   if (!res.ok) return [];
   const all = (await res.json()) as Repo[];
   const curatedNames = new Set((profile.featuredProjects ?? []).map((f) => f.repo.split("/").pop()));
-  const blacklist = new Set(["youtube-video-background"]);
+  const blacklist = new Set(["youtube-video-background", "get-location---get-System-Information", "nextjs-camera", "First-steps-with-Deno"]);
   const filtered = all.filter((r) => !r.archived && !r.name.startsWith(".") && !blacklist.has(r.name));
+  const keywords = (profile as any).featuredPriority as string[] | undefined;
   const scored = filtered
-    .map((r) => ({
-      repo: r,
-      score:
-        (r.homepage ? 400 : 0) +
-        Math.min(250, r.stargazers_count * 6) +
-        (curatedNames.has(r.name) ? 150 : 0) +
-        (r.pushed_at ? Math.max(0, 150 - Math.floor((Date.now() - new Date(r.pushed_at).getTime()) / (1000 * 60 * 60 * 24))) : 0) +
-        (/restaurant/i.test(`${r.name} ${r.description ?? ''}`) ? 150 : 0),
-    }))
+    .map((r) => {
+      let kbonus = 0;
+      if (keywords?.length) {
+        for (let i = 0; i < keywords.length; i++) {
+          const kw = keywords[i];
+          if (new RegExp(kw, "i").test(`${r.name} ${r.description ?? ''}`)) {
+            kbonus = Math.max(kbonus, 600 - i * 80);
+          }
+        }
+      }
+      return {
+        repo: r,
+        score:
+          (r.homepage ? 400 : 0) +
+          Math.min(250, r.stargazers_count * 6) +
+          (curatedNames.has(r.name) ? 150 : 0) +
+          (r.pushed_at ? Math.max(0, 150 - Math.floor((Date.now() - new Date(r.pushed_at).getTime()) / (1000 * 60 * 60 * 24))) : 0) +
+          kbonus,
+      };
+    })
     .sort((a, b) => b.score - a.score)
     .map((s) => s.repo);
-  return scored.slice(0, 3);
+  return scored.slice(0, 6);
 }
 
 export async function FeaturedProjects() {
