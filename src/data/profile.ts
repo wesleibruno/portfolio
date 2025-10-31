@@ -32,6 +32,7 @@ export const profile = {
     "Three.js",
     "Grafana",
     "Zabbix",
+    "Flutter",
     "PHP",
   ],
   experience: [

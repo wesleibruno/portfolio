@@ -8,6 +8,7 @@ Aplicação moderna de portfólio construída com Next.js 16 (App Router), TypeS
 - Tailwind CSS
 - shadcn/ui
 - Framer Motion
+- Flutter (Mobile)
 
 ### Pré-requisitos
 - Node.js 18+
