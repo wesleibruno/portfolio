@@ -1,9 +1,9 @@
 ## Portfólio — Weslei B Santana
 
-Aplicação moderna de portfólio construída com Next.js 14 (App Router), TypeScript, Tailwind CSS e componentes shadcn/ui. Suporta i18n (pt, en, es, fr), tema claro/escuro e animações com Framer Motion.
+Aplicação moderna de portfólio construída com Next.js 16 (App Router), TypeScript, Tailwind CSS e componentes shadcn/ui. Suporta i18n (pt, en, es, fr), tema claro/escuro e animações com Framer Motion.
 
 ### Tecnologias
-- Next.js 14 (App Router)
+- Next.js 16 (App Router)
 - TypeScript
 - Tailwind CSS
 - shadcn/ui
