@@ -1,0 +1,20 @@
+{
+  "nav": {"home": "Home", "projects": "Projects", "about": "About", "skills": "Skills", "experience": "Experience", "contact": "Contact"},
+  "hero": {"title": "I build modern, high‑performance web experiences.", "subtitle": "Next.js, React, TypeScript, Tailwind and best practices. Explore my projects and skills.", "ctaProjects": "View Projects", "ctaContact": "Contact", "viewProfile": "View profile"},
+  "sections": {"featured": "Featured Projects", "projects": "Projects", "about": "About", "skills": "Skills", "experience": "Experience", "education": "Education", "certifications": "Certifications", "languages": "Languages", "contact": "Contact"},
+  "sectionsDesc": {"featured": "A selection of relevant work.", "projects": "Latest updated repositories from my GitHub.", "contact": "Open to opportunities and collaborations. Let's talk!"},
+  "buttons": {"whatsapp": "WhatsApp", "email": "Email", "github": "GitHub", "linkedin": "LinkedIn", "downloadCv": "Download CV (PDF)"},
+  "profile": {"headline": "Software Engineer • Full Stack Developer", "bio": "Full Stack developer focused on software engineering with experience in JavaScript, TypeScript, Node.js, React.js and Next.js. Skilled at building complete, scalable solutions with databases (MySQL, MongoDB, PostgreSQL and SQL Server). Experience with TensorFlow.js (ML), Three.js (3D), browser extensions and advanced APIs including ChatGPT and Llama APIs."},
+  "experience": {
+    "items": [
+      {"role": "Full Stack Developer (Freelance)", "company": "Multiple clients (collaboration with Microsoft professional – USA)", "period": "2023 — Present", "summary": "Projects involving financial analysis with ChatGPT and TensorFlow.js; Chrome extension with 3D manipulation and automation; full Next.js apps with Llama API enabling real-time Q&A; 3D project with Three.js.", "highlights": ["Systems with Next.js, TypeScript and Prisma", "Integrations with ChatGPT and Llama APIs", "Interactive 3D visualizations with Three.js"]},
+      {"role": "IT Coordinator", "company": "CELMI (Weighing Industry)", "period": "04/2021 — 12/2023", "summary": "Development and maintenance of ERP and ordering system (MySQL, PHP, React.js and Node.js), monitoring rollout (Grafana, Zabbix) and team leadership for technological innovation and digital security."},
+      {"role": "IT Analyst", "company": "MARP (Industry, Commerce and Export)", "period": "01/2018 — 05/2021", "summary": "Website development and infrastructure management with Windows Server, Zabbix, Grafana and GLPI; network and systems support, including firewalls and server maintenance."}
+    ]
+  },
+  "education": {"items": [{"degree": "Software Engineering", "school": "UNOPAR (Universidade Norte do Paraná)", "period": "2022"}]},
+  "certifications": {"list": ["ReactJS — Maximilian Schwarzmüller", "NodeJS — Rocketseat", "NextJS/HTML/CSS/JavaScript — B7Web", "TypeScript/NestJS — Hcode", "Zabbix — Janssen Lima", "Mikrotik — Jodelson Santiago", "PfSense — FAME"]},
+  "languagesData": {"list": [{"name": "Portuguese", "level": "Fluent (C2)"}, {"name": "English", "level": "Intermediate (B1)"}]}
+}
+
+

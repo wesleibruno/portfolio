@@ -1,14 +1,15 @@
+import { ContactBanner } from "@/components/contact-banner";
 import { Hero } from "@/components/hero";
+import { FeaturedProjects } from "@/components/featured-projects";
 import { Projects } from "@/components/projects";
 import { About } from "@/components/about";
 import { Skills } from "@/components/skills";
-import { Contact } from "@/components/contact";
 import { Experience, Education } from "@/components/experience";
 import { Certifications } from "@/components/certifications";
 import { Languages } from "@/components/languages";
-import { ContactBanner } from "@/components/contact-banner";
-import { FeaturedProjects } from "@/components/featured-projects";
 import { ParallaxSection } from "@/components/parallax-section";
+
+export const metadata = { title: 'Weslei Bruno | Portfólio' };
 
 export default function Home() {
   return (
@@ -43,7 +44,8 @@ export default function Home() {
       <ParallaxSection offset={20}>
         <Languages />
       </ParallaxSection>
-      <Contact />
-      </main>
+    </main>
   );
 }
+
+

@@ -1,0 +1,20 @@
+{
+  "nav": {"home": "Accueil", "projects": "Projets", "about": "À propos", "skills": "Compétences", "experience": "Expérience", "contact": "Contact"},
+  "hero": {"title": "Je crée des expériences web modernes et performantes.", "subtitle": "Next.js, React, TypeScript, Tailwind et bonnes pratiques. Découvrez mes projets et compétences.", "ctaProjects": "Voir les projets", "ctaContact": "Contact", "viewProfile": "Voir le profil"},
+  "sections": {"featured": "Projets mis en avant", "projects": "Projets", "about": "À propos", "skills": "Compétences", "experience": "Expérience", "education": "Éducation", "certifications": "Certifications", "languages": "Langues", "contact": "Contact"},
+  "sectionsDesc": {"featured": "Une sélection de travaux pertinents.", "projects": "Derniers dépôts mis à jour de mon GitHub.", "contact": "Ouvert aux opportunités et collaborations. Discutons !"},
+  "buttons": {"whatsapp": "WhatsApp", "email": "Email", "github": "GitHub", "linkedin": "LinkedIn", "downloadCv": "Télécharger le CV (PDF)"},
+  "profile": {"headline": "Ingénieur Logiciel • Développeur Full Stack", "bio": "Développeur Full Stack axé sur l'ingénierie logicielle, avec expérience en JavaScript, TypeScript, Node.js, React.js et Next.js. Compétent pour créer des solutions complètes et évolutives avec des bases de données (MySQL, MongoDB, PostgreSQL et SQL Server). Expérience avec TensorFlow.js (ML), Three.js (3D), extensions de navigateur et APIs avancées, y compris ChatGPT et Llama."},
+  "experience": {
+    "items": [
+      {"role": "Développeur Full Stack (Freelance)", "company": "Divers clients (collaboration avec un professionnel Microsoft – USA)", "period": "2023 — Présent", "summary": "Projets d'analyse financière avec ChatGPT et TensorFlow.js ; extension Chrome avec manipulation 3D et automatisations ; applications Next.js avec API Llama pour Q&R en temps réel ; projet 3D avec Three.js.", "highlights": ["Systèmes avec Next.js, TypeScript et Prisma", "Intégrations avec les APIs ChatGPT et Llama", "Visualisations 3D interactives avec Three.js"]},
+      {"role": "Coordinateur IT", "company": "CELMI (Industrie de balances)", "period": "04/2021 — 12/2023", "summary": "Développement et maintenance d'ERP et système de commandes (MySQL, PHP, React.js et Node.js), déploiement de la supervision (Grafana, Zabbix) et leadership d'équipe pour l'innovation technologique et la sécurité."},
+      {"role": "Analyste IT", "company": "MARP (Industrie, Commerce et Export)", "period": "01/2018 — 05/2021", "summary": "Développement de sites et gestion d'infrastructure avec Windows Server, Zabbix, Grafana et GLPI ; support réseaux et systèmes, y compris pare-feux et maintenance des serveurs."}
+    ]
+  },
+  "education": {"items": [{"degree": "Génie Logiciel", "school": "UNOPAR (Universidade Norte do Paraná)", "period": "2022"}]},
+  "certifications": {"list": ["ReactJS — Maximilian Schwarzmüller", "NodeJS — Rocketseat", "NextJS/HTML/CSS/JavaScript — B7Web", "TypeScript/NestJS — Hcode", "Zabbix — Janssen Lima", "Mikrotik — Jodelson Santiago", "PfSense — FAME"]},
+  "languagesData": {"list": [{"name": "Portugais", "level": "Courant (C2)"}, {"name": "Anglais", "level": "Intermédiaire (B1)"}]}
+}
+
+
