@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { profile } from "@/data/profile";
 import pt from "@/i18n/messages/pt.json";
 import en from "@/i18n/messages/en.json";
 import es from "@/i18n/messages/es.json";

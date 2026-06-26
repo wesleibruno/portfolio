@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { ModeToggle } from "@/components/mode-toggle";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Menu, Github, Linkedin, MessageCircle } from "lucide-react";
+import { Github, Linkedin, Menu, MessageCircle } from "lucide-react";
 import { socialLinks } from "@/data/profile";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useEffect, useState } from "react";
@@ -25,8 +25,8 @@ export function Navbar() {
   const prefix = `/${locale}`;
   const links = [
     { href: `${prefix}/#home`, label: t.nav.home },
+    { href: `${prefix}/#relevant`, label: t.sections.relevant },
     { href: `${prefix}/#projects`, label: t.nav.projects },
-    { href: `${prefix}/#about`, label: t.nav.about },
     { href: `${prefix}/#skills`, label: t.nav.skills },
     { href: `${prefix}/#experience`, label: t.nav.experience },
     { href: `${prefix}/#contact`, label: t.nav.contact },
@@ -35,8 +35,9 @@ export function Navbar() {
   useEffect(() => {
     function onScroll() {
       setScrolled(window.scrollY > 8);
-      const sections = ["home", "projects", "about", "skills", "experience", "contact"];
+      const sections = ["home", "relevant", "projects", "skills", "experience", "contact"];
       let curr = "#home";
+
       for (const id of sections) {
         const el = document.getElementById(id);
         if (!el) continue;
@@ -46,70 +47,80 @@ export function Navbar() {
           break;
         }
       }
+
       setActive(curr);
     }
+
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
   return (
-    <header className={`sticky top-0 z-50 w-full border-b backdrop-blur ${scrolled ? "bg-background/70 h-14" : "bg-background/40 h-16"} transition-[height,background]` }>
+    <header className={`sticky top-0 print:hidden z-50 w-full border-b backdrop-blur ${scrolled ? "h-14 bg-background/80" : "h-16 bg-background/60"} transition-[height,background]`}>
       <div className="mx-auto flex h-full max-w-6xl items-center justify-between px-4">
         <Link href={prefix} className="font-semibold">
           wesleibruno
         </Link>
-        <nav className="hidden gap-6 md:flex">
-          {links.map((l) => (
-            <Link
-              key={l.href}
-              href={l.href}
-              className={`group relative text-sm transition-colors ${active === l.href.split('#')[1] ? "text-foreground" : "text-foreground/70 hover:text-foreground"}`}
-            >
-              <span className="inline-block transition-transform group-hover:-translate-y-0.5">{l.label}</span>
-              <span className="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-0 bg-gradient-to-r from-primary to-primary/30 transition-all duration-300 group-hover:w-full" />
-            </Link>
-          ))}
+
+        <nav className="hidden gap-5 md:flex">
+          {links.map((link) => {
+            const section = `#${link.href.split("#")[1]}`;
+
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`group relative text-sm transition-colors ${active === section ? "text-foreground" : "text-foreground/70 hover:text-foreground"}`}
+              >
+                <span className="inline-block transition-transform group-hover:-translate-y-0.5">{link.label}</span>
+                <span className="pointer-events-none absolute -bottom-1 left-0 h-[2px] w-0 bg-gradient-to-r from-primary to-primary/30 transition-all duration-300 group-hover:w-full" />
+              </Link>
+            );
+          })}
         </nav>
+
         <div className="flex items-center gap-2">
           <LanguageSwitcher />
           <Link href={socialLinks.github} target="_blank" className="group hidden sm:block" aria-label="GitHub">
-            <Avatar className="h-8 w-8 transform transition-all duration-300 group-hover:scale-125 group-hover:ring-2 group-hover:ring-primary/40">
+            <Avatar className="size-8 transform transition-all duration-300 group-hover:scale-110 group-hover:ring-2 group-hover:ring-primary/40">
               <AvatarImage src="https://github.com/wesleibruno.png" alt="Avatar GitHub" />
               <AvatarFallback>WB</AvatarFallback>
             </Avatar>
           </Link>
           <Link href={socialLinks.github} target="_blank" className="hidden text-foreground/80 hover:text-foreground sm:block" aria-label="GitHub">
-            <Github className="h-5 w-5" />
+            <Github className="size-5" />
           </Link>
           <Link href={socialLinks.linkedin} target="_blank" className="hidden text-foreground/80 hover:text-foreground sm:block" aria-label="LinkedIn">
-            <Linkedin className="h-5 w-5" />
+            <Linkedin className="size-5" />
           </Link>
           <Link href={socialLinks.whatsapp} target="_blank" className="hidden text-foreground/80 hover:text-foreground sm:block" aria-label="WhatsApp">
-            <MessageCircle className="h-5 w-5" />
+            <MessageCircle className="size-5" />
           </Link>
           <ModeToggle />
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="ghost" size="icon" className="md:hidden">
-                <Menu className="h-5 w-5" />
+                <Menu className="size-5" />
               </Button>
             </SheetTrigger>
             <SheetContent side="right">
+              <SheetTitle className="sr-only">Menu</SheetTitle>
               <div className="mt-6 flex flex-col gap-4">
-                {links.map((l) => (
-                  <Link key={l.href} href={l.href} className="text-sm" prefetch={false}>
-                    {l.label}
+                {links.map((link) => (
+                  <Link key={link.href} href={link.href} className="text-sm" prefetch={false}>
+                    {link.label}
                   </Link>
                 ))}
                 <div className="mt-4 flex items-center gap-4">
                   <Link href={socialLinks.github} target="_blank" className="text-foreground/80 hover:text-foreground" aria-label="GitHub">
-                    <Github className="h-5 w-5" />
+                    <Github className="size-5" />
                   </Link>
                   <Link href={socialLinks.linkedin} target="_blank" className="text-foreground/80 hover:text-foreground" aria-label="LinkedIn">
-                    <Linkedin className="h-5 w-5" />
+                    <Linkedin className="size-5" />
                   </Link>
                   <Link href={socialLinks.whatsapp} target="_blank" className="text-foreground/80 hover:text-foreground" aria-label="WhatsApp">
-                    <MessageCircle className="h-5 w-5" />
+                    <MessageCircle className="size-5" />
                   </Link>
                 </div>
               </div>
@@ -120,5 +131,3 @@ export function Navbar() {
     </header>
   );
 }
-
-

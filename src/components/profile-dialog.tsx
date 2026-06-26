@@ -7,13 +7,13 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, Di
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 
-export function ProfileDialog() {
+export function ProfileDialog({ label = "Ver perfil" }: { label?: string }) {
   const topSkills = (profile.skills ?? []).slice(0, 8);
 
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <Button variant="outline">Ver perfil</Button>
+        <Button variant="outline">{label}</Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-xl">
         <DialogHeader>
@@ -30,7 +30,7 @@ export function ProfileDialog() {
             {profile.contact?.phone ? <p>{profile.contact.phone}</p> : null}
           </div>
         </div>
-        <p className="text-sm text-muted-foreground">{profile.bio}</p>
+        <p className="text-sm leading-6 text-muted-foreground">{profile.cvIntro}</p>
         <div className="flex flex-wrap gap-2">
           {topSkills.map((s) => (
             <Badge key={s} variant="secondary">{s}</Badge>

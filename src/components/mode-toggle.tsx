@@ -9,7 +9,10 @@ export function ModeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => setMounted(true));
+    return () => cancelAnimationFrame(frame);
+  }, []);
 
   if (!mounted) return null;
 
@@ -22,9 +25,7 @@ export function ModeToggle() {
       aria-label="Alternar tema"
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >
-      {isDark ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+      {isDark ? <Sun className="size-5" /> : <Moon className="size-5" />}
     </Button>
   );
 }
-
-

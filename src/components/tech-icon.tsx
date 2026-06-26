@@ -1,6 +1,6 @@
 "use client";
 
-import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiNodedotjs, SiPrisma, SiPostgresql, SiMongodb, SiMysql, SiTensorflow, SiThreedotjs, SiGrafana, SiPhp, SiOpenai, SiFlutter, SiOpenjdk, SiAngular, SiSpringboot, SiAndroid } from "react-icons/si";
+import { SiNextdotjs, SiReact, SiTypescript, SiTailwindcss, SiNodedotjs, SiPrisma, SiPostgresql, SiMongodb, SiMysql, SiTensorflow, SiThreedotjs, SiGrafana, SiPhp, SiOpenai, SiFlutter, SiOpenjdk, SiAngular, SiSpringboot, SiAndroid, SiGo, SiPython, SiKotlin, SiDocker, SiGit, SiRedis, SiNginx } from "react-icons/si";
 import { IconType } from "react-icons";
 
 const map: Record<string, IconType> = {
@@ -12,6 +12,16 @@ const map: Record<string, IconType> = {
   "tailwindcss": SiTailwindcss,
   "node.js": SiNodedotjs,
   "nodejs": SiNodedotjs,
+  "go": SiGo,
+  "golang": SiGo,
+  "python": SiPython,
+  "kotlin": SiKotlin,
+  "docker": SiDocker,
+  "docker compose": SiDocker,
+  "git/github": SiGit,
+  "git": SiGit,
+  "redis": SiRedis,
+  "nginx": SiNginx,
   "prisma": SiPrisma,
   "postgresql": SiPostgresql,
   "mongodb": SiMongodb,

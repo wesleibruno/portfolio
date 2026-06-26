@@ -13,7 +13,7 @@ export function Footer() {
   const locale = useCurrentLocale();
   const t = dict[locale];
   return (
-    <footer className="border-t py-6">
+    <footer className="border-t py-6 print:hidden">
       <div className="mx-auto flex max-w-6xl items-center justify-between px-4 text-sm text-muted-foreground">
         <p>© {new Date().getFullYear()} wesleibruno</p>
         <div className="flex gap-4">

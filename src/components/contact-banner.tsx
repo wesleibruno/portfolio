@@ -1,7 +1,6 @@
 "use client";
 
 import { profile, socialLinks } from "@/data/profile";
-import { Button } from "@/components/ui/button";
 import { RippleButton } from "@/components/ripple-button";
 import Link from "next/link";
 import { Mail, Phone, Github, Linkedin, MessageCircle } from "lucide-react";

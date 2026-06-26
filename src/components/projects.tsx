@@ -1,7 +1,6 @@
 import { ProjectsGrid } from "@/components/projects-grid";
 import { SectionHeading } from "@/components/section-heading";
 import { ProjectsDesc } from "@/components/projects-desc";
-import { headers } from "next/headers";
 
 type Repo = {
   id: number;

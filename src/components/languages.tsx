@@ -16,7 +16,7 @@ export function Languages() {
       <motion.div initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, margin: "-100px" }} transition={{ duration: 0.5 }}>
         <h2 className="text-2xl font-semibold">{t.sections.languages}</h2>
         <ul className="mt-4 list-disc pl-5 text-sm text-muted-foreground">
-          {t.languagesData.list?.map((l: any) => (
+          {t.languagesData.list?.map((l: { name: string; level: string }) => (
             <li key={l.name}>
               <span className="font-medium text-foreground">{l.name}</span>: {l.level}
             </li>

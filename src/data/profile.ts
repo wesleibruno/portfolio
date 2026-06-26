@@ -6,9 +6,84 @@ export const socialLinks = {
 
 export const profile = {
   name: "Weslei B Santana",
-  headline: "Software Engineer • Desenvolvedor Full Stack",
+  headline: "Desenvolvedor Full Stack | Mobile Android | APIs & IA",
   bio:
-    "Desenvolvedor Full Stack com foco em engenharia de software e experiência sólida em JavaScript, TypeScript, Node.js, Python, Go, React.js e Next.js. Desenvolvimento mobile nativo Android com Kotlin e Jetpack Compose, além de Flutter. Criação de back-ends escaláveis com APIs RESTful, gRPC e MQTT, integrados a bancos NoSQL e SQL (MongoDB, PostgreSQL/PostGIS, Redis, MySQL e SQL Server). Experiência com Docker, Docker Compose, automação de pipelines CI/CD e versionamento com Git/GitHub. Atuação forte em Inteligência Artificial: criação de prompts e uso de agentes de IA (OpenClaw, OpenFang, Hermes Agent) e LLMs como ChatGPT, Opus, Grok, GLM e DeepSeek, além de TensorFlow.js e Three.js.",
+    "Desenvolvedor Full Stack com foco em engenharia de software, criação de produtos web/mobile e integração entre front-end, APIs, dados e infraestrutura. Experiência com JavaScript, TypeScript, Node.js, Python, Go, React.js, Next.js, Android nativo com Kotlin/Jetpack Compose e Flutter. Atuação em back-ends escaláveis com APIs RESTful, gRPC, MQTT, bancos NoSQL e SQL (MongoDB, PostgreSQL/PostGIS, Redis, MySQL e SQL Server), Docker, Docker Compose, CI/CD e Git/GitHub. Também desenvolve soluções com Inteligência Artificial, agentes, LLMs, TensorFlow.js e visualizações 3D com Three.js.",
+  cvIntro:
+    "Perfil técnico generalista, com experiência prática em desenvolvimento full stack, mobile Android, integrações em tempo real, infraestrutura com containers e soluções com IA aplicada. Busca construir produtos confiáveis, bem estruturados e fáceis de evoluir.",
+  focusAreas: [
+    {
+      title: "Mobile e interfaces",
+      summary: "Android nativo com Kotlin/Jetpack Compose, Flutter, React e Next.js para experiências web/mobile.",
+      tags: ["Kotlin", "Android", "Jetpack Compose", "Flutter", "React", "Next.js"],
+    },
+    {
+      title: "Back-end e integrações",
+      summary: "APIs RESTful, gRPC, MQTT, WebSocket, autenticação JWT e integração com bancos SQL/NoSQL.",
+      tags: ["Node.js", "Go", "Python", "REST APIs", "gRPC", "MQTT"],
+    },
+    {
+      title: "Infraestrutura e dados",
+      summary: "Docker, Docker Compose, CI/CD, Git/GitHub, MongoDB, PostgreSQL/PostGIS, Redis e observabilidade.",
+      tags: ["Docker", "CI/CD", "MongoDB", "PostgreSQL", "Redis", "Grafana"],
+    },
+    {
+      title: "IA aplicada",
+      summary: "Prompts, agentes, LLMs, automações, TensorFlow.js e análise de dados para produtos digitais.",
+      tags: ["AI Agents", "LLMs", "TensorFlow.js", "OpenAI", "Three.js"],
+    },
+  ],
+  skillGroups: [
+    {
+      title: "Mobile",
+      items: ["Kotlin", "Android", "Jetpack Compose", "Flutter", "Clean Architecture", "MVVM"],
+    },
+    {
+      title: "Back-end / APIs",
+      items: ["Node.js", "Python", "Go", "REST APIs", "gRPC", "MQTT", "WebSocket", "JWT"],
+    },
+    {
+      title: "Front-end",
+      items: ["React", "Next.js", "TypeScript", "JavaScript", "Tailwind", "shadcn/ui"],
+    },
+    {
+      title: "Dados / Infra / IA",
+      items: ["MongoDB", "PostgreSQL", "Redis", "Docker", "CI/CD", "Git/GitHub", "AI Agents", "TensorFlow.js"],
+    },
+  ],
+  cvHighlights: [
+    "Desenvolvimento mobile nativo Android com Kotlin, Jetpack Compose, Clean Architecture e MVVM.",
+    "Criação de APIs RESTful, gRPC, MQTT e WebSocket integradas a front-ends web e aplicativos mobile.",
+    "Modelagem e integração com bancos NoSQL e SQL, incluindo MongoDB, PostgreSQL/PostGIS, Redis, MySQL e SQL Server.",
+    "Infraestrutura com Docker, Docker Compose, Nginx, automação CI/CD e versionamento com Git/GitHub.",
+    "Aplicação de IA com LLMs, agentes, prompts, TensorFlow.js e automações orientadas a produto.",
+  ],
+  relevantProjects: [
+    {
+      title: "Plataforma full stack e mobile em tempo real",
+      scope: "Back-end, web, app Android e infraestrutura",
+      summary:
+        "Construção de uma plataforma completa com back-end em Go, front-end em Next.js/React e aplicativo Android nativo em Kotlin/Jetpack Compose. O projeto envolve comunicação em tempo real, autenticação, arquitetura modular e infraestrutura com containers.",
+      impact: [
+        "APIs RESTful, gRPC, MQTT e WebSocket para comunicação entre serviços, web e mobile.",
+        "App Android com Clean Architecture multi-módulo, MVVM e interfaces em Jetpack Compose.",
+        "Ambiente com Docker/Docker Compose, PostgreSQL/PostGIS, Redis e Nginx.",
+      ],
+      tags: ["Go", "Next.js", "Kotlin", "gRPC", "MQTT", "Docker"],
+    },
+    {
+      title: "Análise de mercado financeiro com IA",
+      scope: "Dados, IA, automação e visualização",
+      summary:
+        "Projeto de captura e análise de dados financeiros com integração a ChatGPT e TensorFlow.js para gerar insights, apoiar leitura de mercado e explorar automações com modelos de IA.",
+      impact: [
+        "Integração com APIs de IA para análise, sumarização e geração de insights.",
+        "Uso de TensorFlow.js para experimentos de análise e processamento no ecossistema JavaScript.",
+        "Interface web para consulta, acompanhamento e interpretação de dados financeiros.",
+      ],
+      tags: ["Next.js", "TypeScript", "ChatGPT", "TensorFlow.js", "Dados"],
+    },
+  ],
   location: "Brasil",
   contact: {
     phone: "+55 43 9 9662-7695",

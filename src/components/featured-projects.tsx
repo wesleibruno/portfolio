@@ -1,11 +1,6 @@
 import { profile } from "@/data/profile";
 import { SectionHeading } from "@/components/section-heading";
 import { FeaturedDesc } from "@/components/featured-desc";
-import pt from "@/i18n/messages/pt.json";
-import en from "@/i18n/messages/en.json";
-import es from "@/i18n/messages/es.json";
-import fr from "@/i18n/messages/fr.json";
-import { useCurrentLocale } from "@/i18n/use-locale";
 import { ProjectsGrid } from "@/components/projects-grid";
 
 type Repo = {
@@ -20,18 +15,6 @@ type Repo = {
   pushed_at?: string;
   archived?: boolean;
 };
-
-async function getRepo(fullName: string, token?: string): Promise<Repo | null> {
-  const res = await fetch(`https://api.github.com/repos/${fullName}`, {
-    next: { revalidate: 3600, tags: ["github-repos"] },
-    headers: {
-      Accept: "application/vnd.github+json",
-      ...(token ? { Authorization: `Bearer ${token}` } : {}),
-    },
-  });
-  if (!res.ok) return null;
-  return (await res.json()) as Repo;
-}
 
 async function getFeatured(): Promise<Repo[]> {
   const token = process.env.GITHUB_TOKEN;
@@ -48,7 +31,7 @@ async function getFeatured(): Promise<Repo[]> {
   const curatedNames = new Set((profile.featuredProjects ?? []).map((f) => f.repo.split("/").pop()));
   const blacklist = new Set(["youtube-video-background", "get-location---get-System-Information", "nextjs-camera", "First-steps-with-Deno"]);
   const filtered = all.filter((r) => !r.archived && !r.name.startsWith(".") && !blacklist.has(r.name));
-  const keywords = (profile as any).featuredPriority as string[] | undefined;
+  const keywords = profile.featuredPriority;
   const scored = filtered
     .map((r) => {
       let kbonus = 0;

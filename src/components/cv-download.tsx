@@ -2,11 +2,37 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Download, Printer } from "lucide-react";
+import { Download, Loader2, Printer } from "lucide-react";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 
 type Labels = { print: string; download: string; generating: string };
+type PdfLinkArea = {
+  height: number;
+  href: string;
+  left: number;
+  top: number;
+  width: number;
+};
+
+function getPdfLinkAreas(element: HTMLElement): PdfLinkArea[] {
+  const rootRect = element.getBoundingClientRect();
+  const links = Array.from(element.querySelectorAll<HTMLAnchorElement>("a[data-pdf-link][href]"));
+
+  return links
+    .map((link) => {
+      const rect = link.getBoundingClientRect();
+
+      return {
+        height: rect.height,
+        href: link.href,
+        left: rect.left - rootRect.left,
+        top: rect.top - rootRect.top,
+        width: rect.width,
+      };
+    })
+    .filter((area) => area.href && area.width > 0 && area.height > 0);
+}
 
 export function CvActions({ targetId = "cv-root", labels }: { targetId?: string; labels?: Labels }) {
   const [downloading, setDownloading] = useState(false);
@@ -14,39 +40,78 @@ export function CvActions({ targetId = "cv-root", labels }: { targetId?: string;
   async function handleDownloadPdf() {
     const element = document.getElementById(targetId);
     if (!element) return;
+
     setDownloading(true);
     try {
-      // Forçar variáveis de cor em RGB/HEX para evitar erros do html2canvas com oklch/lab
       document.documentElement.classList.add("cv-export");
-      await new Promise((r) => setTimeout(r, 50));
+      await new Promise((resolve) => setTimeout(resolve, 80));
+
+      const elementRect = element.getBoundingClientRect();
+      const pdfLinkAreas = getPdfLinkAreas(element);
       const canvas = await html2canvas(element, {
         scale: 2,
         useCORS: true,
         backgroundColor: "#ffffff",
         logging: false,
+        windowWidth: document.documentElement.scrollWidth,
+        scrollY: -window.scrollY,
       });
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4" });
 
+      const pdf = new jsPDF({ orientation: "p", unit: "pt", format: "a4" });
       const pageWidth = pdf.internal.pageSize.getWidth();
       const pageHeight = pdf.internal.pageSize.getHeight();
-      const imgWidth = pageWidth;
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
+      const margin = 24;
+      const printableWidth = pageWidth - margin * 2;
+      const printableHeight = pageHeight - margin * 2;
+      const scale = canvas.width / printableWidth;
+      const canvasScaleX = canvas.width / elementRect.width;
+      const canvasScaleY = canvas.height / elementRect.height;
+      const pageCanvasHeight = Math.floor(printableHeight * scale);
+      const pageCanvas = document.createElement("canvas");
+      const context = pageCanvas.getContext("2d");
 
-      let position = 0;
-      let heightLeft = imgHeight;
+      if (!context) return;
 
-      pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight, undefined, "FAST");
-      heightLeft -= pageHeight;
+      pageCanvas.width = canvas.width;
+      let renderedHeight = 0;
+      let pageIndex = 0;
 
-      while (heightLeft > 0) {
-        pdf.addPage();
-        position = heightLeft - imgHeight;
-        pdf.addImage(imgData, "PNG", 0, position, imgWidth, imgHeight, undefined, "FAST");
-        heightLeft -= pageHeight;
+      while (renderedHeight < canvas.height) {
+        const sliceHeight = Math.min(pageCanvasHeight, canvas.height - renderedHeight);
+        pageCanvas.height = sliceHeight;
+        context.fillStyle = "#ffffff";
+        context.fillRect(0, 0, pageCanvas.width, pageCanvas.height);
+        context.drawImage(canvas, 0, renderedHeight, canvas.width, sliceHeight, 0, 0, canvas.width, sliceHeight);
+
+        const imageData = pageCanvas.toDataURL("image/png");
+        const imageHeight = sliceHeight / scale;
+
+        if (pageIndex > 0) pdf.addPage();
+        pdf.addImage(imageData, "PNG", margin, margin, printableWidth, imageHeight, undefined, "FAST");
+        for (const link of pdfLinkAreas) {
+          const linkLeft = link.left * canvasScaleX;
+          const linkTop = link.top * canvasScaleY;
+          const linkWidth = link.width * canvasScaleX;
+          const linkHeight = link.height * canvasScaleY;
+          const visibleTop = Math.max(linkTop, renderedHeight);
+          const visibleBottom = Math.min(linkTop + linkHeight, renderedHeight + sliceHeight);
+
+          if (visibleBottom <= visibleTop) continue;
+
+          pdf.link(
+            margin + linkLeft / scale,
+            margin + (visibleTop - renderedHeight) / scale,
+            linkWidth / scale,
+            (visibleBottom - visibleTop) / scale,
+            { url: link.href },
+          );
+        }
+
+        renderedHeight += sliceHeight;
+        pageIndex += 1;
       }
 
-      pdf.save("curriculo-weslei.pdf");
+      pdf.save("curriculo-weslei-b-santana.pdf");
     } finally {
       document.documentElement.classList.remove("cv-export");
       setDownloading(false);
@@ -58,15 +123,15 @@ export function CvActions({ targetId = "cv-root", labels }: { targetId?: string;
   const generatingLabel = labels?.generating ?? "Gerando...";
 
   return (
-    <div className="flex gap-2">
-      <Button variant="outline" size="sm" onClick={() => window.print()}>
-        <Printer className="mr-2 h-4 w-4" /> {printLabel}
+    <div className="flex flex-wrap gap-2">
+      <Button variant="outline" size="sm" className="bg-[#ffffff] text-[#0f172a] hover:bg-[#f8fafc] dark:bg-[#ffffff] dark:text-[#0f172a] dark:hover:bg-[#f8fafc]" onClick={() => window.print()}>
+        <Printer data-icon="inline-start" />
+        {printLabel}
       </Button>
-      <Button size="sm" onClick={handleDownloadPdf} disabled={downloading}>
-        <Download className="mr-2 h-4 w-4" /> {downloading ? generatingLabel : downloadLabel}
+      <Button size="sm" className="bg-[#2563eb] text-[#ffffff] hover:bg-[#1d4ed8] dark:bg-[#2563eb] dark:text-[#ffffff] dark:hover:bg-[#1d4ed8]" onClick={handleDownloadPdf} disabled={downloading}>
+        {downloading ? <Loader2 data-icon="inline-start" className="animate-spin" /> : <Download data-icon="inline-start" />}
+        {downloading ? generatingLabel : downloadLabel}
       </Button>
     </div>
   );
 }
-
-

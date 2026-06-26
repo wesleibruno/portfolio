@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
-import { socialLinks } from "@/data/profile";
+import { profile, socialLinks } from "@/data/profile";
 import pt from "@/i18n/messages/pt.json";
 import en from "@/i18n/messages/en.json";
 import es from "@/i18n/messages/es.json";
@@ -27,7 +27,7 @@ export function Contact() {
             </Link>
           </Button>
           <Button asChild>
-            <Link href="mailto:wesleibruno.dev@gmail.com">{t.buttons.email}</Link>
+            <Link href={`mailto:${profile.contact.email}`}>{t.buttons.email}</Link>
           </Button>
           <Button variant="outline" asChild>
             <Link href="https://github.com/wesleibruno" target="_blank">{t.buttons.github}</Link>
