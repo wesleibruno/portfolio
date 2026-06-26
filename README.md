@@ -2,14 +2,21 @@
 
 Aplicação moderna de portfólio construída com Next.js 16 (App Router), TypeScript, Tailwind CSS e componentes shadcn/ui. Suporta i18n (pt, en, es, fr), tema claro/escuro e animações com Framer Motion.
 
-### Tecnologias
+### Tecnologias do portfólio
 - Next.js 16 (App Router)
 - TypeScript
 - Tailwind CSS
 - shadcn/ui
 - Framer Motion
-- Flutter (Mobile)
-- Java, Spring Boot, Angular, Android
+
+### Stack profissional (perfil/CV)
+- **Linguagens:** Node.js, Python, Go, TypeScript/JavaScript, Kotlin, Java, PHP
+- **Mobile:** Android nativo (Kotlin + Jetpack Compose), Flutter, Clean Architecture, MVVM
+- **Front-end:** React, Next.js, Angular, Tailwind, shadcn/ui
+- **Back-end / APIs:** REST, gRPC, MQTT, WebSocket, JWT, Fiber, Spring Boot, Prisma
+- **Bancos de dados:** MongoDB, PostgreSQL/PostGIS, Redis, MySQL, SQL Server
+- **DevOps / Infra:** Docker, Docker Compose, CI/CD, Git/GitHub, Nginx, Grafana, Zabbix
+- **IA:** agentes de IA (OpenClaw, OpenFang, Hermes Agent), prompt engineering, LLMs (ChatGPT, Opus, Grok, GLM, DeepSeek), TensorFlow.js, Three.js
 
 ### Pré-requisitos
 - Node.js 18+
