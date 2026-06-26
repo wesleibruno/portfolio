@@ -14,7 +14,7 @@
   },
   "education": {"items": [{"degree": "Software Engineering", "school": "UNOPAR (Universidade Norte do Paraná)", "period": "2022"}]},
   "certifications": {"list": ["ReactJS — Maximilian Schwarzmüller", "NodeJS — Rocketseat", "NextJS/HTML/CSS/JavaScript — B7Web", "TypeScript/NestJS — Hcode", "Zabbix — Janssen Lima", "Mikrotik — Jodelson Santiago", "PfSense — FAME"]},
-  "languagesData": {"list": [{"name": "Portuguese", "level": "Fluent (C2)"}, {"name": "English", "level": "Intermediate (B1)"}]}
+  "languagesData": {"list": [{"name": "Portuguese", "level": "Fluent (C2)"}, {"name": "English", "level": "Basic"}]}
 }
 
 

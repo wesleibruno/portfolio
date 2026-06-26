@@ -191,7 +191,7 @@ export const profile = {
   ],
   languages: [
     { name: "Português", level: "Fluente (C2)" },
-    { name: "Inglês", level: "Intermediário (B1)" },
+    { name: "Inglês", level: "Básico" },
   ],
   featuredProjects: [
     {

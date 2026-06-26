@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { profile, socialLinks } from "@/data/profile";
+import { Github, Linkedin, Mail, MessageCircle, Phone, type LucideIcon } from "lucide-react";
 
 function cleanUrl(url: string) {
   return url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
@@ -7,6 +8,23 @@ function cleanUrl(url: string) {
 
 function phoneHref(phone: string) {
   return `tel:+${phone.replace(/\D/g, "")}`;
+}
+
+function ContactLink({
+  href,
+  icon: Icon,
+  label,
+}: {
+  href: string;
+  icon: LucideIcon;
+  label: string;
+}) {
+  return (
+    <a data-pdf-link href={href} className="inline-flex items-center gap-2 hover:underline md:justify-end">
+      <Icon aria-hidden className="size-3.5 shrink-0 text-[#93c5fd]" />
+      <span>{label}</span>
+    </a>
+  );
 }
 
 export function CvDocument() {
@@ -24,32 +42,22 @@ export function CvDocument() {
           <address className="not-italic text-sm leading-6 text-[#e2e8f0] md:text-right">
             {profile.contact.email ? (
               <p>
-                <a data-pdf-link href={`mailto:${profile.contact.email}`} className="hover:underline">
-                  {profile.contact.email}
-                </a>
+                <ContactLink href={`mailto:${profile.contact.email}`} icon={Mail} label={profile.contact.email} />
               </p>
             ) : null}
             {profile.contact.phone ? (
               <p>
-                <a data-pdf-link href={phoneHref(profile.contact.phone)} className="hover:underline">
-                  {profile.contact.phone} (ligar)
-                </a>
+                <ContactLink href={phoneHref(profile.contact.phone)} icon={Phone} label={`${profile.contact.phone} (ligar)`} />
               </p>
             ) : null}
             <p>
-              <a data-pdf-link href={socialLinks.whatsapp} className="hover:underline">
-                WhatsApp: {cleanUrl(socialLinks.whatsapp)}
-              </a>
+              <ContactLink href={socialLinks.whatsapp} icon={MessageCircle} label={`WhatsApp: ${cleanUrl(socialLinks.whatsapp)}`} />
             </p>
             <p>
-              <a data-pdf-link href={socialLinks.linkedin} className="hover:underline">
-                {cleanUrl(socialLinks.linkedin)}
-              </a>
+              <ContactLink href={socialLinks.linkedin} icon={Linkedin} label={cleanUrl(socialLinks.linkedin)} />
             </p>
             <p>
-              <a data-pdf-link href={socialLinks.github} className="hover:underline">
-                {cleanUrl(socialLinks.github)}
-              </a>
+              <ContactLink href={socialLinks.github} icon={Github} label={cleanUrl(socialLinks.github)} />
             </p>
           </address>
         </div>
