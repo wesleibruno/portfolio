@@ -31,11 +31,23 @@ export default function CVPage() {
             <h1 className="text-2xl font-bold">{profile.name}</h1>
             <p className="text-sm text-muted-foreground">{t.profile.headline}</p>
           </div>
-          <div className="text-xs text-muted-foreground">
-            {profile.contact?.email ? <p>{profile.contact.email}</p> : null}
-            {profile.contact?.phone ? <p>{profile.contact.phone}</p> : null}
-            <p className="hidden print:block">{socialLinks.linkedin}</p>
-            <p className="hidden print:block">{socialLinks.github}</p>
+          <div className="space-y-0.5 text-xs text-muted-foreground sm:text-right">
+            {profile.contact?.email ? (
+              <p>
+                <a href={`mailto:${profile.contact.email}`} className="hover:underline">{profile.contact.email}</a>
+              </p>
+            ) : null}
+            {profile.contact?.phone ? (
+              <p>
+                <a href={socialLinks.whatsapp} className="hover:underline">{profile.contact.phone} (WhatsApp)</a>
+              </p>
+            ) : null}
+            <p>
+              <a href={socialLinks.linkedin} className="hover:underline">{socialLinks.linkedin.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a>
+            </p>
+            <p>
+              <a href={socialLinks.github} className="hover:underline">{socialLinks.github.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "")}</a>
+            </p>
           </div>
         </header>
 

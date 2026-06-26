@@ -8,7 +8,7 @@ export const profile = {
   name: "Weslei B Santana",
   headline: "Software Engineer • Desenvolvedor Full Stack",
   bio:
-    "Desenvolvedor Full Stack com foco em engenharia de software e experiência em JavaScript, TypeScript, Node.js, React.js e Next.js. Competente na criação de soluções completas e escaláveis, com integração a bancos de dados (MySQL, MongoDB, PostgreSQL e SQL Server). Experiência com TensorFlow.js (ML), Three.js (3D), extensões para navegador e uso de APIs avançadas, incluindo APIs do ChatGPT e Llama.",
+    "Desenvolvedor Full Stack com foco em engenharia de software e experiência sólida em JavaScript, TypeScript, Node.js, Python, Go, React.js e Next.js. Desenvolvimento mobile nativo Android com Kotlin e Jetpack Compose, além de Flutter. Criação de back-ends escaláveis com APIs RESTful, gRPC e MQTT, integrados a bancos NoSQL e SQL (MongoDB, PostgreSQL/PostGIS, Redis, MySQL e SQL Server). Experiência com Docker, Docker Compose, automação de pipelines CI/CD e versionamento com Git/GitHub. Atuação forte em Inteligência Artificial: criação de prompts e uso de agentes de IA (OpenClaw, OpenFang, Hermes Agent) e LLMs como ChatGPT, Opus, Grok, GLM e DeepSeek, além de TensorFlow.js e Three.js.",
   location: "Brasil",
   contact: {
     phone: "+55 43 9 9662-7695",
@@ -17,27 +17,57 @@ export const profile = {
   },
   resumeUrl: "/cv", // fallback imprimível; se quiser PDF direto, coloque /cv.pdf em /public
   skills: [
-    "Next.js",
-    "React",
+    // Linguagens
+    "Node.js",
+    "Python",
+    "Go",
     "TypeScript",
+    "JavaScript",
+    "Kotlin",
+    "Java",
+    "PHP",
+    // Mobile
+    "Jetpack Compose",
+    "Android",
+    "Flutter",
+    "Clean Architecture",
+    "MVVM",
+    // Front-end
+    "React",
+    "Next.js",
+    "Angular",
     "Tailwind",
     "shadcn/ui",
-    "Node.js",
+    // Back-end / APIs
+    "REST APIs",
+    "gRPC",
+    "MQTT",
+    "WebSocket",
+    "JWT",
+    "Fiber",
+    "Spring Boot",
     "Prisma",
-    "PostgreSQL",
+    // Bancos de dados
     "MongoDB",
+    "PostgreSQL",
+    "PostGIS",
+    "Redis",
     "MySQL",
     "SQL Server",
-    "TensorFlow.js",
-    "Three.js",
+    // DevOps / Infra
+    "Docker",
+    "Docker Compose",
+    "CI/CD",
+    "Git/GitHub",
+    "Nginx",
     "Grafana",
     "Zabbix",
-    "Flutter",
-    "Java",
-    "Spring Boot",
-    "Angular",
-    "Android",
-    "PHP",
+    // IA
+    "AI Agents",
+    "Prompt Engineering",
+    "LLMs (ChatGPT/Opus/Grok/DeepSeek)",
+    "TensorFlow.js",
+    "Three.js",
   ],
   experience: [
     {
@@ -45,11 +75,12 @@ export const profile = {
       company: "Diversos clientes (colaboração com profissional da Microsoft – EUA)",
       period: "2023 — Atual",
       summary:
-        "Projetos envolvendo análise financeira com ChatGPT e TensorFlow.js; extensão para Google Chrome com manipulação 3D e automações; apps completos em Next.js com API Llama, permitindo análise de perguntas com respostas em tempo real; projeto 3D com Three.js.",
+        "Desenvolvimento full stack de uma plataforma completa: back-end em Go (Fiber, GORM, Asynq/Redis, JWT) com APIs RESTful, gRPC e WebSocket; front-end em Next.js 15, React 19 e TypeScript; e app mobile nativo Android em Kotlin com Jetpack Compose, Clean Architecture multi-módulo e MVVM, comunicação em tempo real via gRPC/MQTT. Infraestrutura em Docker e Docker Compose com PostgreSQL/PostGIS, Redis e Nginx. Também projetos de análise financeira com ChatGPT e TensorFlow.js e visualizações 3D com Three.js.",
       highlights: [
-        "Sistemas com Next.js, TypeScript e Prisma",
-        "Integrações com APIs do ChatGPT e Llama",
-        "Visualizações 3D interativas com Three.js",
+        "Mobile nativo Android com Kotlin, Jetpack Compose e Clean Architecture (MVVM)",
+        "Back-end em Go e Node.js com APIs RESTful, gRPC e MQTT integradas ao front-end",
+        "Infra com Docker/Docker Compose, MongoDB, PostgreSQL/PostGIS e Redis; automação CI/CD",
+        "Uso avançado de IA: criação de prompts e agentes (OpenClaw, OpenFang, Hermes) e LLMs (ChatGPT, Opus, Grok, DeepSeek)",
       ],
     },
     {
